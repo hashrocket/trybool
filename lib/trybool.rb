@@ -3,7 +3,14 @@ require "trybool/version"
 module Trybool
   TRUTHY_VALUES = [
     true,
-    "true"
+    1,
+    "1",
+    "t",
+    "T",
+    "true",
+    "TRUE",
+    "on",
+    "ON",
   ]
 
   def self.configure

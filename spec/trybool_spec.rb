@@ -29,16 +29,16 @@ RSpec.describe(Trybool) do
     context "when provided a truthy value configuration" do
       before do
         described_class.configure do |config|
-          config << "1"
+          config << "hello"
         end
       end
 
       it "returns true when value matches configured value" do
-        expect(described_class.parse("1")).to eq(true)
+        expect(described_class.parse("hello")).to eq(true)
       end
 
       it "returns false when value is no match for configured values" do
-        expect(described_class.parse("0")).to eq(false)
+        expect(described_class.parse("ohmy")).to eq(false)
       end
     end
   end
@@ -47,10 +47,10 @@ RSpec.describe(Trybool) do
     context "when provided a single value" do
       it "is added to white list of truthy values" do
         described_class.configure do |config|
-          config << "1"
+          config << "hello"
         end
 
-        expect(described_class.truthy_values).to include("1")
+        expect(described_class.truthy_values).to include("hello")
       end
     end
 
