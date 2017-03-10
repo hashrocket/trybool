@@ -1,8 +1,10 @@
 # Trybool
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/trybool`. To experiment with that code, run `bin/console` for an interactive prompt.
+[![Gem Version](http://img.shields.io/gem/v/trybool.svg?style=flat)](http://badge.fury.io/rb/trybool)
+[![Build Status](http://img.shields.io/travis/hashrocket/trybool/master.svg?style=flat)](https://travis-ci.org/hashrocket/trybool)
+[![Code Climate](http://img.shields.io/codeclimate/github/hashrocket/trybool.svg?style=flat)](https://codeclimate.com/github/hashrocket/trybool)
 
-TODO: Delete this and the text above, and describe your gem
+The value parsing tool to return a boolean that you never knew you needed!
 
 ## Installation
 
@@ -22,7 +24,43 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Tried to make this as straight forward a tool as possible.
+
+```ruby
+Trybool.parse("1")
+=> true
+```
+
+```ruby
+Trybool.parse("off")
+=> false
+```
+
+You can even configure it for additional values you may want.
+
+A once falsey value:
+
+```ruby
+Trybool.parse("applesauce")
+=> false
+```
+
+With a little configuration:
+
+```ruby
+Trybool.configure do |config|
+  config << "applesauce"
+end
+```
+
+Is now known as the truth!
+
+```ruby
+Trybool.parse("applesauce")
+=> true
+```
+
+Just remember a Boolean only has two states, so we only define 'truthy' values. Now we can make a powerful assumption that if it's not the truth... it's false.
 
 ## Development
 
@@ -32,7 +70,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/mattpolito/trybool.
+Bug reports and pull requests are welcome on GitHub at https://github.com/hashrocket/trybool.
 
 
 ## License
