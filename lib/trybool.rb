@@ -26,6 +26,6 @@ module Trybool
   end
 
   def self.truthy_values
-    @truthy_values ||= Set[*TRUTHY_VALUES]
+    @_truthy_values ||= Set[*TRUTHY_VALUES]
   end
 end
