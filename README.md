@@ -1,8 +1,7 @@
 # Trybool
 
 [![Gem Version](http://img.shields.io/gem/v/trybool.svg?style=flat)](http://badge.fury.io/rb/trybool)
-[![Build Status](http://img.shields.io/travis/hashrocket/trybool/master.svg?style=flat)](https://travis-ci.org/hashrocket/trybool)
-[![Code Climate](http://img.shields.io/codeclimate/github/hashrocket/trybool.svg?style=flat)](https://codeclimate.com/github/hashrocket/trybool)
+[![Build Status](https://img.shields.io/github/workflow/status/hashrocket/trybool/CI)](https://github.com/hashrocket/trybool/actions?query=workflow%3ACI)
 
 The value parsing tool to return a boolean that you never knew you needed!
 
