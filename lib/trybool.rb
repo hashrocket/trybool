@@ -10,7 +10,7 @@ module Trybool
     "true",
     "TRUE",
     "on",
-    "ON",
+    "ON"
   ]
 
   def self.configure

@@ -1,37 +1,28 @@
-# coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
+lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'trybool/version'
+require "trybool/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "trybool"
-  spec.version       = Trybool::VERSION
-  spec.authors       = ["Matt Polito"]
-  spec.email         = ["matt.polito@gmail.com"]
+  spec.name = "trybool"
+  spec.version = Trybool::VERSION
+  spec.authors = ["Matt Polito"]
+  spec.email = ["matt.polito@gmail.com"]
 
-  spec.summary       = %q{Confidently return a boolean from a value}
-  spec.description   = %q{The value parser for returning Booleans you never knew you needed.}
-  spec.homepage      = "https://github.com/hashrocket/trybool"
-  spec.license       = "MIT"
+  spec.summary = "Confidently return a boolean from a value"
+  spec.description = "The value parser for returning Booleans you never knew you needed."
+  spec.homepage = "https://github.com/hashrocket/trybool"
+  spec.license = "MIT"
 
-  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
-  # to allow pushing to a single host or delete this section to allow pushing to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against " \
-      "public gem pushes."
+  spec.files = Dir.chdir(File.expand_path("..", __FILE__)) do
+    `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   end
-
-  spec.files         = `git ls-files -z`.split("\x0").reject do |f|
-    f.match(%r{^(test|spec|features)/})
-  end
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.bindir = "exe"
+  spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.14"
+  spec.add_development_dependency "bundler"
   spec.add_development_dependency "pry"
   spec.add_development_dependency "rake", ">= 12.3.3"
   spec.add_development_dependency "rspec", "~> 3.0"
+  spec.add_development_dependency "standard"
 end

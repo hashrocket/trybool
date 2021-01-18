@@ -69,7 +69,7 @@ RSpec.describe(Trybool) do
     context "when provided multiple values as a collection" do
       it "is added to white list of truthy values" do
         described_class.configure do |config|
-          config << ["hello","howdy"]
+          config << ["hello", "howdy"]
         end
 
         expect(described_class.truthy_values).to include("hello")
