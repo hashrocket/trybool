@@ -1,7 +1,9 @@
 require "trybool/version"
 
 module Trybool
-  TRUTHY_VALUES = [
+  module_function
+
+  TRUTH_SET = Set[
     true,
     1,
     "1",
@@ -13,19 +15,18 @@ module Trybool
     "ON"
   ]
 
-  def self.configure
+  def configure
     yield(self)
+    self
   end
 
-  def self.<<(value)
-    Array(value).each { |v| truthy_values << v }
+  def add_truthy_value(value)
+    Array(value).each { |v| TRUTH_SET.add(v) }
   end
+  singleton_class.alias_method :<<, :add_truthy_value
 
-  def self.parse(value)
-    truthy_values.include?(value)
+  def parse(value)
+    TRUTH_SET.include?(value)
   end
-
-  def self.truthy_values
-    @_truthy_values ||= Set[*TRUTHY_VALUES]
-  end
+  singleton_class.alias_method :[], :parse
 end

@@ -1,6 +1,14 @@
 require "spec_helper"
 
 RSpec.describe(Trybool) do
+  describe ".[]" do
+    context "when provided a 'truthy' string value" do
+      it "returns true" do
+        expect(described_class["true"]).to eq(true)
+      end
+    end
+  end
+
   describe ".parse" do
     context "when provided a 'truthy' string value" do
       it "returns true" do
